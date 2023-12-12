@@ -1,0 +1,36 @@
+Pode também deixar seu script start apenas para fazer compilar e dar o start, deixando ele assim:
+"dev": "ts-node-dev --transpile-only src/server.ts"
+
+npm run dev
+
+1) npm init
+2) npm i express
+3) npm i @types/express -D
+4) npm tsc --init - esse está errado
+5) npx tsc --init - esse inicia o typescrit e gera p arquivo tsconfig.json
+6) npm i ts-node-dev -D
+7) realizar a alteracao
+"scripts": {
+    "dev": "ts-node-dev src/server.ts"
+  },
+8) npm run dev - para executar
+
+Foi criado primeiro o arq server.ts e depois o routes.ts
+
+9) npm i express-async-errors
+
+10) liberar para qqr IP possa faze a requisicao, instalar : npm i cors 
+
+11) npm i --save-dev@types/cors
+
+postgresql
+senha: admin
+
+12) npm i prisma
+13) npm install @prisma/client
+14) npx prisma init
+
+
+depois de criar os models em schema.prisma
+npx prisma migrate dev
+create-models-pizzaria
