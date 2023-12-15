@@ -34,3 +34,9 @@ senha: admin
 depois de criar os models em schema.prisma
 npx prisma migrate dev
 create-models-pizzaria
+
+15) paea criptograr a senha , instalar:
+npm i bcryptjs
+npm i @types/bcryptjs -D
+
+npm uninstall @types/bcryptjs
