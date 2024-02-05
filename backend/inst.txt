@@ -40,3 +40,16 @@ npm i bcryptjs
 npm i @types/bcryptjs -D
 
 npm uninstall @types/bcryptjs
+
+16) instalar o JWT
+npm i jsonwebtoken
+
+17) npm i @types/jsonwebtoken -D
+
+18) #Secret JWT https://www.md5hashgenerator.com/
+#	projetosujeitopizzaria
+JWT_SECRET=98388750f63fac47136942aaf8ac79ce
+
+19) npm i dotenv
+
+20)  alterar "strict": false,     no arquivo tsconfig.json
