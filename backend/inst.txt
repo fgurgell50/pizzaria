@@ -26,6 +26,11 @@ Foi criado primeiro o arq server.ts e depois o routes.ts
 postgresql
 senha: admin
 
+Postbird
+username: postgresql
+senha: admin
+database: pizzaria
+
 12) npm i prisma
 13) npm install @prisma/client
 14) npx prisma init
@@ -53,3 +58,5 @@ JWT_SECRET=98388750f63fac47136942aaf8ac79ce
 19) npm i dotenv
 
 20)  alterar "strict": false,     no arquivo tsconfig.json
+
+21) trabalhar com img - npm i multer & npm i @types/multer -D ( ambiente de dSV )
