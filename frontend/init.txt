@@ -1,0 +1,14 @@
+Front end
+npm run dev
+
+criar a aplicacao 
+npx create-next-app frontend - apenas habilitar typescript
+
+criar uma pasta src 
+colocar pages dentro de src
+
+instalar typescript
+npm i typescript @types/react @types/node -D
+
+instalar o acelerador de CSS
+npm i sass

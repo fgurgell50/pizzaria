@@ -1,59 +1,56 @@
-import prismaClient from "../../prisma";
 
-import { compare } from "bcryptjs";
+import prismaClient from "../../prisma";
+import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
 
-interface AuthRequest {
-    email: string,
-    password: string
+interface AuthRequest{
+  email: string;
+  password: string;
 }
 
-class AuthUserService {
-    async execute( { email, password }: AuthRequest ) {
-            //console.log(password)
 
-        // verificar se email já existe
-        const user = await prismaClient.user.findFirst({ 
-            where: {
-                email: email
-            }
-            })
+class AuthUserService{
+  async execute({ email, password }: AuthRequest){
+    //Verificar se o email existe.
+    const user = await prismaClient.user.findFirst({
+      where:{
+        email: email
+      }
+    })
 
-            if (!user){
-            throw new Error("User/Password Incorrect.")
-            }    
-
-        
-        // Verificar se a senha está correta
-        const pwdMatch = await compare(password, user.password)
-        //console.log(pwdMatch)
-        if (!pwdMatch) {
-            throw new Error("User/Password Incorrect.")
-        }
-
-        // se deu certo vamos gerar o Token par ao usuário
-        const token = sign(
-            // os dados q vao fazer parte do payload
-            {
-                name: user.name,
-                email: user.email
-            },
-            process.env.JWT_SECRET || 'default_secret', // Use uma chave secreta de ambiente ou uma padrão
-        {
-                subject: user.id,
-                expiresIn: '30d' // Exemplo de definição de validade do token
-            }
-        );
-
-        return { 
-            id: user.id,
-            name: user.name,
-            email: user.email,  
-            token };
+    if(!user){
+      throw new Error("User/password incorrect")
     }
+
+    // preciso verificar se a senha que ele mandou está correta.
+    const passwordMatch = await compare(password, user.password)
+
+    if(!passwordMatch){
+      throw new Error("User/password incorrect")
+    }
+
+
+    // Se deu tudo certo vamos gerar o token pro usuario.
+    const token = sign(
+      {
+        name: user.name,
+        email: user.email
+      },
+      process.env.JWT_SECRET,
+      {
+        subject: user.id,
+        expiresIn: '30d'
+      }
+    )
+
+
+    return { 
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      token: token
+     }
+  }
 }
 
-export {
-    AuthUserService
-}
-
+export { AuthUserService };
