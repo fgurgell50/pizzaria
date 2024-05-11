@@ -12,3 +12,8 @@ npm i typescript @types/react @types/node -D
 
 instalar o acelerador de CSS
 npm i sass
+
+instalar ReactIcons
+npm i react-icons
+
+instalar axios, nookies jwt-decode
