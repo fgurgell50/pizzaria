@@ -17,3 +17,6 @@ instalar ReactIcons
 npm i react-icons
 
 instalar axios, nookies jwt-decode
+
+p rodar frontend 
+npm run dev

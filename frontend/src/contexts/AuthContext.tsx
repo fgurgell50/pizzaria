@@ -65,7 +65,7 @@ export function AuthProvider({ children }: AuthProviderProps  ){
                 email,
             })
 
-            //Passar para pr[oximas requisicoes o Token
+            //Passar para proximas requisicoes o Token
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`
 

@@ -22,8 +22,6 @@ export default function SignUp() {
       <div className={styles.login}>
         <h1>Criando sua Conta</h1>
         <form>
-
-
         <Input 
           placeholder="Digite seu nome"
           type="text"
@@ -51,7 +49,6 @@ export default function SignUp() {
         <Link href="/" className={styles.text}>
           Já possui uma conta faça o login.
         </Link>
-
 
       </div>
     </div>
