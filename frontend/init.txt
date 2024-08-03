@@ -24,3 +24,5 @@ npm run dev
 npm install --save react-toastify
 
 instalar toastify
+
+npm i --save-dev @types/react-modal
