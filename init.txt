@@ -1,0 +1,33 @@
+npx create-expo-app@latest
+
+npm uninstall -g expo-cli
+
+npx expo install expo@~51.0.26 expo-router@~3.5.21 react-native@0.74.5
+
+npx expo start
+
+esse aqui q utilizei 
+npm install @react-navigation/native
+
+npx expo install react-native-screens react-native-safe-area-context
+
+https://reactnavigation.org/docs/getting-started/
+
+npx expo install @react-navigation/native-stack
+
+npm install react-native-responsive-screen
+
+npx expo install react-native-responsive-screen
+
+1. Criar um Build de Produção:
+Quando você criar uma versão de produção do seu aplicativo (usando expo build ou eas build), essa barra não será incluída.
+
+Para criar um build de produção, você pode usar o comando:
+
+eas build --platform ios
+eas build --platform android
+
+Executar em um Simulador ou Emulador com expo start --no-dev --minify:
+Você pode iniciar seu aplicativo sem o modo de desenvolvimento ativado, o que removerá a barra:
+
+npx expo start --no-dev --minify
