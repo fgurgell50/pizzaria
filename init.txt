@@ -31,3 +31,15 @@ Executar em um Simulador ou Emulador com expo start --no-dev --minify:
 Você pode iniciar seu aplicativo sem o modo de desenvolvimento ativado, o que removerá a barra:
 
 npx expo start --no-dev --minify
+
+npx expo start --no-dev
+
+
+npx expo start --clear
+
+npx expo run:ios
+
+
+npx expo install @react-native-async-storage/async-storage
+
+npx expo install axios 

@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { 
     SafeAreaView, 
     Text, 
     StyleSheet,
     Image,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    ActivityIndicator
  } from 'react-native'
 
+ import { AuthContext } from "@/contexts/AuthContext";
+
 export default function SignIn(){
+
+    const { signIn, loadingAuth } = useContext(AuthContext)
+
+    const [ email, setEmail ] = useState('')
+    const [ password, setPassword ] = useState('')
+
+    async function handleLogin(){
+        if(email === '' || password === ''){
+            return
+        }
+        await signIn({email, password})
+    }
+
     return(
         <SafeAreaView style = {styles.container }>
             <Image 
@@ -21,15 +37,24 @@ export default function SignIn(){
                     placeholder="Dgoie seu email"
                     style ={styles.input}
                     placeholderTextColor='#F0F0F0'
+                    value={email}
+                    onChangeText={setEmail}
                 />
                                 <TextInput
                     placeholder="Dgoie sua senha"
                     style ={styles.input}
                     placeholderTextColor='#F0F0F0'
                     secureTextEntry={true}
+                    value={password}
+                    onChangeText={setPassword}
                 />
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Acessar</Text>
+                <TouchableOpacity style={styles.button} onPress={handleLogin}>
+                    { loadingAuth ? (
+                        <ActivityIndicator size={25} color='#FFF' />
+                    ) : (
+                        <Text style={styles.buttonText}>Acessar</Text>
+                    ) }
+
                 </TouchableOpacity>                
 
             </SafeAreaView>
