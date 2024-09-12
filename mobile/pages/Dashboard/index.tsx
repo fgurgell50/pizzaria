@@ -5,19 +5,33 @@ import { Text, SafeAreaView, TouchableOpacity, TextInput, StyleSheet} from 'reac
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParamsList } from '@/routes/app.routes';
+import { api } from '@/services/api';
 
 export default function Dashboard(){
     const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>()
     //const { signOut } = useContext(AuthContext)
     const [ number, setNumber ] = useState('')
 
-    async function openOrder(){
+    async function openOrder(){ 
        if(number === ''){
         return
        }
 
-       //requisicao e abrir a mesa e navegar para próxima tela
-       navigation.navigate('Order', { number: number, order_id: '' })
+       try {
+        const response = await api.post('/order', {
+            table: Number(number) // convertendo para número
+           })
+        //console.log(response.data)
+
+           //requisicao e abrir a mesa e navegar para próxima tela
+       navigation.navigate('Order', { number: number, order_id: response.data.id })
+       setNumber('')
+
+       } catch (error) {
+            console.log(error)
+       }
+
+    
 
     }
 
