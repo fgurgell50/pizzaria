@@ -14,6 +14,8 @@ import { Feather } from '@expo/vector-icons';
 import { api } from '@/services/api';
 import { ModalPicker } from '@/components/ModalPicker';
 import { ListItem } from '@/components/listItem';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackParamsList } from '@/routes/app.routes';
 
 type RouteDetailParams = {
     Order: {
@@ -43,7 +45,7 @@ type OrderRouteProp = RouteProp<RouteDetailParams,'Order'>
 
 export default function Order(){
     const route = useRoute<OrderRouteProp>() // para receber os parametros "tipados"
-    const navigation = useNavigation()
+    const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>()
 
     const [ category, setCategory ] = useState<CategoryProps[] | []>([]) 
     // uma lista de categorias por isso um array vazio
@@ -142,7 +144,6 @@ export default function Order(){
     }
 
     async function handleDeleteItem(item_id: string){
-
         const response = await api.delete('/order/remove', {
             params:{
                 item_id: item_id
@@ -154,8 +155,10 @@ export default function Order(){
         } )
 
         setItems(removeItem)
-        
+    }
 
+    function handleFinishOrder(){
+        navigation.navigate("FinishOrder")
     }
 
     return(
@@ -208,10 +211,11 @@ export default function Order(){
                 </TouchableOpacity>
 
                 <TouchableOpacity 
-                    style = { styles.button }
+                    style = { [styles.button, {opacity: items.length === 0 ? 0.3 : 1 }] }
                     disabled = {items.length === 0}
+                    onPress={ handleFinishOrder }
                 >
-                    <Text style = { [styles.buttonText, {opacity: items.length === 0 ? 0.3 : 1 } ] } >Avançar</Text>
+                    <Text style = { styles.buttonText } >Avançar</Text>
                 </TouchableOpacity>
             </SafeAreaView>
 
