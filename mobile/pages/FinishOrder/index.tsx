@@ -37,7 +37,7 @@ export default function FinishOrder(){
 
     return(
         <SafeAreaView style = { styles.container }>
-            <Text style= { styles.alert } >\Voce deseja finalizar esse pedido</Text>
+            <Text style= { styles.alert } >Você deseja finalizar esse pedido</Text>
             <Text style= { styles.title } >Mesa {route.params?.number}</Text>
 
         <TouchableOpacity style = { styles.button } onPress={handeFinish}>

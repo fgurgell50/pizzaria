@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { 
     Text, 
     SafeAreaView, 
@@ -8,8 +8,9 @@ import {
     Modal,
     FlatList
 } from 'react-native';
-import { AuthContext } from '@/contexts/AuthContext';
+
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+
 import { Feather } from '@expo/vector-icons';
 import { api } from '@/services/api';
 import { ModalPicker } from '@/components/ModalPicker';
@@ -88,10 +89,6 @@ export default function Order(){
         loadProducts()
 
     }, [categotySelected])
-
-
-
-    //const { signOut } = useContext(AuthContext)
 
     const [ number, setNumber ] = useState('')
 

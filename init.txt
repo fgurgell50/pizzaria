@@ -43,3 +43,16 @@ npx expo run:ios
 npx expo install @react-native-async-storage/async-storage
 
 npx expo install axios 
+
+atualizacao do Expo 
+npm install @expo/vector-icons@^14.0.3
+npm install expo@~51.0.37
+npm install expo-font@~12.0.10
+npm install expo-splash-screen@~0.27.6
+
+npm install jest-expo@~51.0.4
+
+Limpar cache 
+npm cache clean --force
+rm -rf node_modules
+npm install
