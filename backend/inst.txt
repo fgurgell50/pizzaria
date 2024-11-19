@@ -41,7 +41,7 @@ depois de criar os models em schema.prisma
 npx prisma migrate dev
 create-models-pizzaria
 
-15) paea criptograr a senha , instalar:
+15) para criptograr a senha , instalar:
 npm i bcryptjs
 npm i @types/bcryptjs -D
 
@@ -62,9 +62,6 @@ JWT_SECRET=98388750f63fac47136942aaf8ac79ce
 
 21) trabalhar com img - npm i multer & npm i @types/multer -D ( ambiente de dSV )
 
-Front end
-criar a aplicacao 
-npx create-next-app frontend - apenas habilitar typescript
 
-criar uma pasta src 
-colocar pages dentro de src
+
+

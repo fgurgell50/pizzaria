@@ -1,4 +1,16 @@
 Front end
+
+Front end
+criar a aplicacao 
+npx create-next-app frontend 
+apenas habilitar typescript
+
+criar uma pasta src 
+colocar pages dentro de src
+
+Para visualizar as tabelas pelo Prisma
+git prisma studio
+
 npm run dev
 
 criar a aplicacao 
